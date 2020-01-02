@@ -13,33 +13,42 @@ export class HabrCard extends React.Component {
         super(props);
         this.state = {
             result: null,
-            searchTerm: "java"
+            error: false
         };
-        this.setSearchTopStories = this.setSearchTopStories.bind(this);
+        this.setResult = this.setResult.bind(this);
+        this.setError = this.setError.bind(this);
     }
 
     render() {
-        const {result} = this.state;
-        if (!result) {
-            return null
-        }
+        const {result, error} = this.state;
         const list = result;
         const slices = {first: [0, 10], second: [10, 20], third: [20, 30]};
-        return (
-            <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+        if (error) {
+            return (
+                <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+                    <h4 style={{margin: 0}}><a href="https://habr.com/">Habr</a></h4>
+                    {<div className="card-data-error">Getting feed error :(</div>
+                    }
+                </Card>);
+        } else if (!list) {
+            return <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
                 <h4 style={{margin: 0}}><a href="https://habr.com/">Habr</a></h4>
-                <div>
-                    <div className="card-column">
-                        <CardList list={list.slice(...slices.first)}/>
+            </Card>;
+        }else {
+            return (
+                <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+                    <h4 style={{margin: 0}}><a href="https://habr.com/">Habr</a></h4>
+                    {<div>
+                        <div className="card-column">
+                            <CardList list={list.slice(...slices.first)}/>
+                        </div>
+                        <div className="card-column">
+                            <CardList list={list.slice(...slices.second)}/>
+                        </div>
                     </div>
-                    <div className="card-column">
-                        <CardList list={list.slice(...slices.second)}/>
-                    </div>
-                </div>
-
-
-            </Card>)
-            ;
+                    }
+                </Card>);
+        }
     }
 
     componentDidMount() {
@@ -68,14 +77,22 @@ export class HabrCard extends React.Component {
                     console.log("-- " + JSON.stringify(element));
                     list[i++] = element;
                 });
+                this.setError(false);
                 return list
             })
-            .then(result => this.setSearchTopStories(result))
-            .catch(error => console.error('Error in fetching the website ' + error.toString()));
+            .then(result => this.setResult(result))
+            .catch(error => {
+                console.error('Error in fetching the website ' + error.toString());
+                this.setError(true);
+            });
     }
 
-    setSearchTopStories(result) {
+    setResult(result) {
         this.setState({result});
+    }
+
+    setError(error) {
+        this.setState({error});
     }
 }
 
