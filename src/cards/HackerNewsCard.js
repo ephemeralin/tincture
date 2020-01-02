@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, Elevation} from "@blueprintjs/core";
-import {CardTable} from "../common/CardTable";
+import {CardList} from "../common/CardList";
 
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search';
@@ -27,13 +27,13 @@ export class HackerNewsCard extends React.Component {
         return <Card interactive={false} elevation={Elevation.TWO}>
             <h4 style={{margin: 0}}><a href="https://news.ycombinator.com/">Hacker News</a></h4>
             <div style={{display: "inline-block"}}>
-                <CardTable list={list.slice(...slices.first)}/>
+                <CardList list={list.slice(...slices.first)}/>
             </div>
             <div style={{display: "inline-block"}}>
-                <CardTable list={list.slice(...slices.second)}/>
+                <CardList list={list.slice(...slices.second)}/>
             </div>
             <div style={{display: "inline-block"}}>
-                <CardTable list={list.slice(...slices.third)}/>
+                <CardList list={list.slice(...slices.third)}/>
             </div>
         </Card>;
     }

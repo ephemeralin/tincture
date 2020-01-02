@@ -5,6 +5,7 @@ import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {HackerNewsCard} from "./cards/HackerNewsCard";
+import {HabrCard} from "./cards/HabrCard";
 
 class App extends Component {
 
@@ -18,9 +19,8 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <div className="app-header">
-                    <HackerNewsCard/>
-                </div>
+                {/*<HackerNewsCard/>*/}
+                <HabrCard/>
             </div>
         );
     }
