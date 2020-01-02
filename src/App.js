@@ -4,7 +4,7 @@ import './App.css';
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-import {HackerNewsCard} from "./HackerNewsCard";
+import {HackerNewsCard} from "./cards/HackerNewsCard";
 
 class App extends Component {
 

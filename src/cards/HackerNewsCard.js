@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, Elevation} from "@blueprintjs/core";
-import {CardTable} from "./CardTable";
+import {CardTable} from "../common/CardTable";
 
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search';
