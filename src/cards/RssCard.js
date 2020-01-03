@@ -2,14 +2,12 @@ import React from "react";
 import {Card, Elevation} from "@blueprintjs/core";
 import {CardList} from "../common/CardList";
 
-const CORS_API_HOST = 'https://cors-anywhere.herokuapp.com';
-const PATH_BASE = 'https://dou.ua/feed/';
-
-export class DouCard extends React.Component {
+export class RssCard extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            rssParams: props.rssParams,
             result: null,
             error: false
         };
@@ -19,9 +17,10 @@ export class DouCard extends React.Component {
 
     render() {
         const {result, error} = this.state;
+        const {hostName, hostUrl} = this.state.rssParams;
         const list = result;
         const slices = {first: [0, 10], second: [10, 20], third: [20, 30]};
-        const title = <h4 style={{margin: 0}}><a href="https://dou.ua/">DOU</a></h4>;
+        const title = <h4 style={{margin: 0}}><a href={hostUrl}>{hostName}</a></h4>;
         if (error) {
             return (
                 <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
@@ -32,7 +31,7 @@ export class DouCard extends React.Component {
             return <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
                 {title}
             </Card>;
-        }else {
+        } else {
             return (
                 <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
                     {title}
@@ -52,28 +51,33 @@ export class DouCard extends React.Component {
 
         let list = [];
         let i = 0;
-        fetch(`${CORS_API_HOST}/${PATH_BASE}`)
-            .then(response => response.text())
-            .then((xmlTxt) => {
-                const domParser = new DOMParser();
-                const doc = domParser.parseFromString(xmlTxt, 'text/xml');
-                doc.querySelectorAll('item').forEach((item) => {
-                    const element = {
-                        title: item.querySelector('title').textContent,
-                        url: item.querySelector('link').textContent,
-                        objectID: item.querySelector('guid').textContent
-                    };
-                    console.log("-- " + JSON.stringify(element));
-                    list[i++] = element;
+        const {rssUrl, corsProxyUrl} = this.state.rssParams;
+        if (rssUrl && corsProxyUrl) {
+            fetch(`${corsProxyUrl}/${rssUrl}`)
+                .then(response => response.text())
+                .then((xmlTxt) => {
+                    const domParser = new DOMParser();
+                    const doc = domParser.parseFromString(xmlTxt, 'text/xml');
+                    doc.querySelectorAll('item').forEach((item) => {
+                        const element = {
+                            title: item.querySelector('title').textContent,
+                            url: item.querySelector('link').textContent,
+                            objectID: item.querySelector('guid').textContent
+                        };
+                        console.log("-- " + JSON.stringify(element));
+                        list[i++] = element;
+                    });
+                    this.setError(false);
+                    return list
+                })
+                .then(result => this.setResult(result))
+                .catch(error => {
+                    console.error('Error in fetching the website ' + error.toString());
+                    this.setError(true);
                 });
-                this.setError(false);
-                return list
-            })
-            .then(result => this.setResult(result))
-            .catch(error => {
-                console.error('Error in fetching the website ' + error.toString());
-                this.setError(true);
-            });
+        } else {
+            this.setError(true);
+        }
     }
 
     setResult(result) {
