@@ -3,11 +3,9 @@ import {Card, Elevation} from "@blueprintjs/core";
 import {CardList} from "../common/CardList";
 
 const CORS_API_HOST = 'https://cors-anywhere.herokuapp.com';
-// const CORS_API_HOST = 'https://crossorigin.me';
-// const CORS_API_HOST = 'https://test.cors.workers.dev';
-const PATH_BASE = 'https://habr.com/ru/rss/best/daily/';
+const PATH_BASE = 'https://tproger.ru/feed/';
 
-export class HabrCard extends React.Component {
+export class TprogerCard extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,13 +21,12 @@ export class HabrCard extends React.Component {
         const {result, error} = this.state;
         const list = result;
         const slices = {first: [0, 10], second: [10, 20], third: [20, 30]};
-        const title = <h4 style={{margin: 0}}><a href="https://habr.com/">Habr</a></h4>;
+        const title = <h4 style={{margin: 0}}><a href="https://tproger.ru/">Tproger</a></h4>;
         if (error) {
             return (
                 <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
                     {title}
-                    {<div className="card-data-error">Getting feed error :(</div>
-                    }
+                    {<div className="card-data-error">Getting feed error :(</div>}
                 </Card>);
         } else if (!list) {
             return <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
@@ -46,8 +43,7 @@ export class HabrCard extends React.Component {
                         <div className="card-column">
                             <CardList list={list.slice(...slices.second)}/>
                         </div>
-                    </div>
-                    }
+                    </div>}
                 </Card>);
         }
     }
@@ -56,15 +52,7 @@ export class HabrCard extends React.Component {
 
         let list = [];
         let i = 0;
-        fetch(`${CORS_API_HOST}/${PATH_BASE}`,
-            {
-                // method: "get",
-                // mode: "cors",
-                // headers: {
-                //     'Access-Control-Allow-Origin': "http://localhost:3000",
-                //     'Access-Control-Allow-Headers': 'Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name',
-                // }
-            })
+        fetch(`${CORS_API_HOST}/${PATH_BASE}`)
             .then(response => response.text())
             .then((xmlTxt) => {
                 const domParser = new DOMParser();
