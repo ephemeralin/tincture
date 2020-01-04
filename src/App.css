@@ -19,11 +19,32 @@
 
 .card-column {
   display: inline-block;
-  width: 50%;
+  width: 100%;
   vertical-align: top;
 }
 
 .card-data-error {
   margin: 5px 10px 0px 0px;
   color: red;
+}
+
+.card-div {
+  display: inline-block;
+  margin: 0 0 0px 0px;
+  width: 50%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.card-object {
+  overflow: hidden;
+  display: inline-block;
+
+  height:10%;
+  align-items: stretch;
+  align-content: stretch;
+  align-self: stretch;
+}
+
+.card-block {
 }

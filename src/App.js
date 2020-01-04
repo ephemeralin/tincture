@@ -5,6 +5,8 @@ import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {RssCard} from "./cards/RssCard";
+import {leftCards} from "./properties.json"
+import {rightCards} from "./properties.json"
 
 class App extends Component {
 
@@ -18,55 +20,39 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <div style={{margin: "0 0 10px 0"}}>
-                    <RssCard
-                        rssParams = {
-                            {
-                                rssUrl: "https://habr.com/ru/rss/best/daily/",
-                                corsProxyUrl:  "https://cors-anywhere.herokuapp.com",
-                                hostName: "Habr",
-                                hostUrl: "https://habr.com/"
-                            }
-                        }>
-                    </RssCard>
-                </div>
-                <div style={{margin: "0 0 10px 0"}}>
-                    <RssCard
-                        rssParams = {
-                            {
-                                rssUrl: "https://tproger.ru/feed/",
-                                corsProxyUrl:  "https://cors-anywhere.herokuapp.com",
-                                hostName: "Tproger",
-                                hostUrl: "https://tproger.ru/"
-                            }
-                        }>
-                    </RssCard>
-                </div>
-                <div style={{margin: "0 0 10px 0"}}>
-                    <RssCard
-                        rssParams = {
-                            {
-                                rssUrl: "https://dou.ua/feed/",
-                                corsProxyUrl:  "https://cors-anywhere.herokuapp.com",
-                                hostName: "DOU",
-                                hostUrl: "https://dou.ua/"
-                            }
-                        }>
-                    </RssCard>
-                </div>
-                <div style={{margin: "0 0 10px 0"}}>
-                    <RssCard
-                        rssParams = {
-                            {
-                                rssUrl: "https://ebanoe.it/feed/",
-                                corsProxyUrl:  "https://cors-anywhere.herokuapp.com",
-                                hostName: "Ebanoe.IT",
-                                hostUrl: "https://ebanoe.it/"
-                            }
-                        }>
-                    </RssCard>
-                </div>
+                {leftCards.map((card, i) => (
+                        (i < rightCards.length) ?
+                        <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
+                            <div className="card-div">
+                                <div style={{margin: "0px 5px 0px 0px"}}>
+                                    <RssCard
+                                        rssParams={card}>
+                                    </RssCard>
+                                </div>
+                            </div>
+                            <div className="card-div">
+                                <div style={{margin: "0px 0px 0px 5px"}}>
+                                    <RssCard
+                                        rssParams={rightCards[i]}>
+                                    </RssCard>
+                                </div>
+                            </div>
+                        </div> :
+                        <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
+                            <div className="card-div">
+                                <div style={{margin: "0px 5px 0px 0px"}}>
+                                    <RssCard
+                                        rssParams={card}>
+                                    </RssCard>
+                                </div>
+                            </div>
+
+                        </div>
+
+                )
+                )}
             </div>
+
         );
     }
 }

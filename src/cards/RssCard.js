@@ -23,24 +23,21 @@ export class RssCard extends React.Component {
         const title = <h4 style={{margin: 0}}><a href={hostUrl}>{hostName}</a></h4>;
         if (error) {
             return (
-                <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+                <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                     {title}
                     {<div className="card-data-error">Getting feed error :(</div>}
                 </Card>);
         } else if (!list) {
-            return <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+            return <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                 {title}
             </Card>;
         } else {
             return (
-                <Card interactive={false} elevation={Elevation.TWO} style={{overflow: "hidden"}}>
+                <Card interactive={false} elevation={Elevation.TWO} className="card-object" style={{width: "100%"}}>
                     {title}
                     {<div>
                         <div className="card-column">
                             <CardList list={list.slice(...slices.first)}/>
-                        </div>
-                        <div className="card-column">
-                            <CardList list={list.slice(...slices.second)}/>
                         </div>
                     </div>}
                 </Card>);
@@ -58,13 +55,14 @@ export class RssCard extends React.Component {
                 .then((xmlTxt) => {
                     const domParser = new DOMParser();
                     const doc = domParser.parseFromString(xmlTxt, 'text/xml');
-                    doc.querySelectorAll('item').forEach((item) => {
+
+                    let items = this.getItemsElement(doc);
+                    items.forEach((item) => {
                         const element = {
                             title: item.querySelector('title').textContent,
                             url: item.querySelector('link').textContent,
-                            objectID: item.querySelector('guid').textContent
+                            objectID: this.getIdElement(doc).textContent
                         };
-                        console.log("-- " + JSON.stringify(element));
                         list[i++] = element;
                     });
                     this.setError(false);
@@ -86,6 +84,22 @@ export class RssCard extends React.Component {
 
     setError(error) {
         this.setState({error});
+    }
+
+    getItemsElement(doc) {
+        let items = doc.querySelectorAll('item');
+        if (items.length === 0) {
+           items = doc.querySelectorAll('entry');
+        }
+        return items;
+    }
+
+    getIdElement(doc) {
+        let id = doc.querySelector('guid');
+        if (!id) {
+            id = doc.querySelector('id');
+        }
+        return id;
     }
 }
 
