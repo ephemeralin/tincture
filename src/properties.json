@@ -30,6 +30,20 @@
     },
     {
       "row": 4,
+      "rssUrl": "http://droider.ru/feed/",
+      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+      "hostName": "Droider",
+      "hostUrl": "http://droider.ru/"
+    },
+    {
+      "row": 5,
+      "rssUrl": "https://gagadget.com/rss/",
+      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+      "hostName": "GaGadget",
+      "hostUrl": "https://gagadget.com/"
+    },
+    {
+      "row": 6,
       "rssUrl": "https://ebanoe.it/feed/",
       "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
       "hostName": "Ebanoe.IT",
@@ -54,10 +68,10 @@
     },
     {
       "row": 2,
-      "rssUrl": "https://dou.ua/feed/",
+      "rssUrl": "https://www.popmech.ru/out/public-all.xml",
       "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "DOU",
-      "hostUrl": "https://dou.ua/"
+      "hostName": "Популярная механика",
+      "hostUrl": "https://www.popmech.ru/"
     },
     {
       "row": 3,
@@ -65,6 +79,20 @@
       "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
       "hostName": "3Dnews (software)",
       "hostUrl": "https://3dnews.ru/software-news"
+    },
+    {
+      "row": 4,
+      "rssUrl": "https://wylsa.com/category/news/feed/",
+      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+      "hostName": "wylsa.com",
+      "hostUrl": "https://wylsa.com/"
+    },
+    {
+      "row": 5,
+      "rssUrl": "https://dou.ua/feed/",
+      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+      "hostName": "DOU",
+      "hostUrl": "https://dou.ua/"
     }
   ]
 }
