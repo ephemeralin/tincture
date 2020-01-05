@@ -1,5 +1,8 @@
 {
-  "leftCards": [
+  "commonParams": {
+    "corsProxyUrl": "https://cors-anywhere.herokuapp.com"
+  },
+  "leftCardsParams": [
     {
       "row": 0,
       "rssUrl": "https://habr.com/ru/rss/best/daily/",
@@ -50,8 +53,7 @@
       "hostUrl": "https://ebanoe.it/"
     }
   ],
-
-  "rightCards": [
+  "rightCardsParams": [
     {
       "row": 0,
       "rssUrl": "https://tproger.ru/feed/",

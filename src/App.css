@@ -8,24 +8,36 @@
 }
 
 .card-list-row {
-  font-size: 12px;
-  white-space: nowrap;
-  margin: 1px 10px 0px 0px;
-  padding: 5px 0 5px 0;
-  border-bottom: 1px solid #e3e3e3;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-size: 12px;
+    white-space: nowrap;
+    margin: 1px 10px 0px 0px;
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.card-list-row-empty {
+    font-size: 12px;
+    margin: 1px 10px 0px 0px;
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid #30404E;
+    color: #30404E;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .card-column {
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
 }
 
 .card-data-error {
-  margin: 5px 10px 0px 0px;
-  color: red;
+    margin: 5px 10px 0px 0px;
+    color: red;
 }
 
 .card-div {
@@ -37,13 +49,10 @@
 }
 
 .card-object {
-  overflow: hidden;
-  display: inline-block;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
 
-  height:10%;
-  align-items: stretch;
-  align-content: stretch;
-  align-self: stretch;
 }
 
 .card-block {

@@ -5,8 +5,7 @@ import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {RssCard} from "./cards/RssCard";
-import {leftCards} from "./properties.json"
-import {rightCards} from "./properties.json"
+import {commonParams, leftCardsParams, rightCardsParams} from "./properties.json"
 
 class App extends Component {
 
@@ -20,39 +19,39 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {leftCards.map((card, i) => (
-                        (i < rightCards.length) ?
-                        <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
-                            <div className="card-div">
-                                <div style={{margin: "0px 5px 0px 0px"}}>
-                                    <RssCard
-                                        rssParams={card}>
-                                    </RssCard>
+                {leftCardsParams.map((card, i) => (
+                        (i < rightCardsParams.length) ?
+                            <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
+                                <div className="card-div">
+                                    <div style={{margin: "0px 5px 0px 0px"}}>
+                                        <RssCard
+                                            rssParams={card}
+                                            commonParams={commonParams}>
+                                        </RssCard>
+                                    </div>
+                                </div>
+                                <div className="card-div">
+                                    <div style={{margin: "0px 0px 0px 5px"}}>
+                                        <RssCard
+                                            rssParams={rightCardsParams[i]}
+                                            commonParams={commonParams}>
+                                        </RssCard>
+                                    </div>
+                                </div>
+                            </div> :
+                            <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
+                                <div className="card-div">
+                                    <div style={{margin: "0px 5px 0px 0px"}}>
+                                        <RssCard
+                                            rssParams={card}
+                                            commonParams={commonParams}>
+                                        </RssCard>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="card-div">
-                                <div style={{margin: "0px 0px 0px 5px"}}>
-                                    <RssCard
-                                        rssParams={rightCards[i]}>
-                                    </RssCard>
-                                </div>
-                            </div>
-                        </div> :
-                        <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
-                            <div className="card-div">
-                                <div style={{margin: "0px 5px 0px 0px"}}>
-                                    <RssCard
-                                        rssParams={card}>
-                                    </RssCard>
-                                </div>
-                            </div>
-
-                        </div>
-
-                )
+                    )
                 )}
             </div>
-
         );
     }
 }
