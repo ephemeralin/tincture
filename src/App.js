@@ -4,56 +4,64 @@ import './App.css';
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-import {RssCard} from "./cards/RssCard";
-import {commonParams, leftCardsParams, rightCardsParams} from "./properties.json"
+// import {RssCard} from "./cards/RssCard";
+// import {commonParams, leftCardsParams, rightCardsParams} from "./properties.json"
+import {Alignment, Navbar, Tab, Tabs} from "@blueprintjs/core";
+import {PanelDev} from "./panels/PanelDev";
+import {PanelTech} from "./panels/PanelTech";
 
 class App extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            navbarTabId: "Dev"
+        };
+
+        this.handleNavbarTabChange = this.handleNavbarTabChange.bind(this);
+
         document.body.className = (function () {
             return "bp3-dark";
         })();
     }
 
     render() {
+        const navbarTabId = this.state.navbarTabId;
+        console.log("from render " + navbarTabId);
+        let panel = <PanelTech></PanelTech>;
+        if (navbarTabId === "Dev") {
+            panel = <PanelDev></PanelDev>;
+        }
         return (
             <div className="app">
-                {leftCardsParams.map((card, i) => (
-                        (i < rightCardsParams.length) ?
-                            <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
-                                <div className="card-div">
-                                    <div style={{margin: "0px 5px 0px 0px"}}>
-                                        <RssCard
-                                            rssParams={card}
-                                            commonParams={commonParams}>
-                                        </RssCard>
-                                    </div>
-                                </div>
-                                <div className="card-div">
-                                    <div style={{margin: "0px 0px 0px 5px"}}>
-                                        <RssCard
-                                            rssParams={rightCardsParams[i]}
-                                            commonParams={commonParams}>
-                                        </RssCard>
-                                    </div>
-                                </div>
-                            </div> :
-                            <div className="card-block" style={{margin: "8px 0px 0px 0px"}}>
-                                <div className="card-div">
-                                    <div style={{margin: "0px 5px 0px 0px"}}>
-                                        <RssCard
-                                            rssParams={card}
-                                            commonParams={commonParams}>
-                                        </RssCard>
-                                    </div>
-                                </div>
-                            </div>
-                    )
-                )}
+                <Navbar fixedToTop>
+                    <Navbar.Group align={Alignment.LEFT}>
+                        <Navbar.Heading>Tincture</Navbar.Heading>
+                        <Navbar.Divider/>
+                        <Tabs
+                            animate={true}
+                            id="navbar"
+                            large={true}
+                            onChange={this.handleNavbarTabChange}
+                            selectedTabId={navbarTabId}
+                        >
+                            <Tab id="Dev" title="Dev"/>
+                            <Tab id="Tech" title="Tech"/>
+                        </Tabs>
+                    </Navbar.Group>
+                </Navbar>
+
+                {panel}
+
             </div>
         );
     }
+
+    handleNavbarTabChange(navbarTabId) {
+        console.log("handle " + navbarTabId);
+        this.setState({navbarTabId});
+    }
+
 }
 
 export default App;

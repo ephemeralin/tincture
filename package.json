@@ -2,6 +2,10 @@
   "name": "tincture",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.12.1",
+    "node": "12.13.1"
+  },
   "dependencies": {
     "@blueprintjs/core": "^3.22.3",
     "@testing-library/jest-dom": "^4.2.4",

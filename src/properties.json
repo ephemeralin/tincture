@@ -2,99 +2,107 @@
   "commonParams": {
     "corsProxyUrl": "https://cors-anywhere.herokuapp.com"
   },
-  "leftCardsParams": [
-    {
-      "row": 0,
-      "rssUrl": "https://habr.com/ru/rss/best/daily/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "Habr",
-      "hostUrl": "https://habr.com/"
-    },
-    {
-      "row": 1,
-      "rssUrl": "https://vc.ru/rss/all",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "vc.ru",
-      "hostUrl": "https://vc.ru/"
-    },
-    {
-      "row": 2,
-      "rssUrl": "https://www.ixbt.com/export/news.rss",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "ixbt.com",
-      "hostUrl": "https://www.ixbt.com/"
-    },
-    {
-      "row": 3,
-      "rssUrl": "https://3dnews.ru/news/rss/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "3Dnews (hardware)",
-      "hostUrl": "https://3dnews.ru/news"
-    },
-    {
-      "row": 4,
-      "rssUrl": "http://droider.ru/feed/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "Droider",
-      "hostUrl": "http://droider.ru/"
-    },
-    {
-      "row": 5,
-      "rssUrl": "https://gagadget.com/rss/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "GaGadget",
-      "hostUrl": "https://gagadget.com/"
-    },
-    {
-      "row": 6,
-      "rssUrl": "https://ebanoe.it/feed/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "Ebanoe.IT",
-      "hostUrl": "https://ebanoe.it/"
-    }
-  ],
-  "rightCardsParams": [
-    {
-      "row": 0,
-      "rssUrl": "https://tproger.ru/feed/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "Tproger",
-      "hostUrl": "https://tproger.ru/"
-    },
-    {
-      "row": 1,
-      "rssUrl": "https://dev.by/rss",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "dev.by",
-      "hostUrl": "https://dev.by/"
-    },
-    {
-      "row": 2,
-      "rssUrl": "https://www.popmech.ru/out/public-all.xml",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "Популярная механика",
-      "hostUrl": "https://www.popmech.ru/"
-    },
-    {
-      "row": 3,
-      "rssUrl": "https://3dnews.ru/software-news/rss/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "3Dnews (software)",
-      "hostUrl": "https://3dnews.ru/software-news"
-    },
-    {
-      "row": 4,
-      "rssUrl": "https://wylsa.com/category/news/feed/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "wylsa.com",
-      "hostUrl": "https://wylsa.com/"
-    },
-    {
-      "row": 5,
-      "rssUrl": "https://dou.ua/feed/",
-      "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
-      "hostName": "DOU",
-      "hostUrl": "https://dou.ua/"
-    }
-  ]
+  "devPanelParams": {
+    "leftCardsParams": [
+      {
+        "row": 0,
+        "rssUrl": "https://habr.com/ru/rss/best/daily/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "Habr",
+        "hostUrl": "https://habr.com/"
+      },
+      {
+        "row": 1,
+        "rssUrl": "https://dev.by/rss",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "dev.by",
+        "hostUrl": "https://dev.by/"
+      },
+      {
+        "row": 2,
+        "rssUrl": "https://ebanoe.it/feed/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "Ebanoe.IT",
+        "hostUrl": "https://ebanoe.it/"
+      }
+    ],
+    "rightCardsParams": [
+      {
+        "row": 0,
+        "rssUrl": "https://tproger.ru/feed/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "Tproger",
+        "hostUrl": "https://tproger.ru/"
+      },
+      {
+        "row": 1,
+        "rssUrl": "https://dou.ua/feed/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "DOU",
+        "hostUrl": "https://dou.ua/"
+      }
+    ]
+  },
+  "techPanelParams": {
+    "leftCardsParams": [
+      {
+        "row": 0,
+        "rssUrl": "https://vc.ru/rss/all",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "vc.ru",
+        "hostUrl": "https://vc.ru/"
+      },
+      {
+        "row": 1,
+        "rssUrl": "http://droider.ru/feed/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "Droider",
+        "hostUrl": "http://droider.ru/"
+      },
+      {
+        "row": 2,
+        "rssUrl": "https://3dnews.ru/software-news/rss/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "3Dnews (software)",
+        "hostUrl": "https://3dnews.ru/software-news"
+      },
+      {
+        "row": 3,
+        "rssUrl": "https://gagadget.com/rss/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "GaGadget",
+        "hostUrl": "https://gagadget.com/"
+      }
+    ],
+    "rightCardsParams": [
+      {
+        "row": 0,
+        "rssUrl": "https://www.ixbt.com/export/news.rss",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "ixbt.com",
+        "hostUrl": "https://www.ixbt.com/"
+      },
+      {
+        "row": 1,
+        "rssUrl": "https://wylsa.com/category/news/feed/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "wylsa.com",
+        "hostUrl": "https://wylsa.com/"
+      },
+      {
+        "row": 2,
+        "rssUrl": "https://3dnews.ru/news/rss/",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "3Dnews (hardware)",
+        "hostUrl": "https://3dnews.ru/news"
+      },
+      {
+        "row": 3,
+        "rssUrl": "https://www.popmech.ru/out/public-all.xml",
+        "corsProxyUrl": "https://cors-anywhere.herokuapp.com",
+        "hostName": "Популярная механика",
+        "hostUrl": "https://www.popmech.ru/"
+      }
+    ]
+  }
 }
