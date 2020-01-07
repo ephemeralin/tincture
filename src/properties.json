@@ -1,5 +1,5 @@
 {
-  "corsProxyUrl": "",
+  "corsProxyUrl": "https://guwawj2g18.execute-api.eu-central-1.amazonaws.com/dev/cors-proxy/",
   "devPanelParams": {
     "leftCardsParams": [
       {
@@ -13,12 +13,6 @@
         "rssUrl": "https://dev.by/rss",
         "hostName": "dev.by",
         "hostUrl": "https://dev.by/"
-      },
-      {
-        "row": 2,
-        "rssUrl": "https://ebanoe.it/feed/",
-        "hostName": "Ebanoe.IT",
-        "hostUrl": "https://ebanoe.it/"
       }
     ],
     "rightCardsParams": [
