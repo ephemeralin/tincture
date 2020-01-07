@@ -26,11 +26,10 @@ class App extends Component {
 
     render() {
         const navbarTabId = this.state.navbarTabId;
-        const corsProxyUrlParam = process.env.REACT_APP_CORS_PROXY_URL ? process.env.CORS_PROXY_URL : corsProxyUrl;
         let panel =
-            <PanelTech corsProxyUrl={corsProxyUrlParam}></PanelTech>;
+            <PanelTech corsProxyUrl={corsProxyUrl}></PanelTech>;
         if (navbarTabId === "Dev") {
-            panel = <PanelDev corsProxyUrl={corsProxyUrlParam}></PanelDev>;
+            panel = <PanelDev corsProxyUrl={corsProxyUrl}></PanelDev>;
         }
         return (
             <div className="app">
