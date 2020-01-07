@@ -4,11 +4,10 @@ import './App.css';
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-// import {RssCard} from "./cards/RssCard";
-// import {commonParams, leftCardsParams, rightCardsParams} from "./properties.json"
 import {Alignment, Navbar, Tab, Tabs} from "@blueprintjs/core";
 import {PanelDev} from "./panels/PanelDev";
 import {PanelTech} from "./panels/PanelTech";
+import {corsProxyUrl} from "./private-properties";
 
 class App extends Component {
 
@@ -27,10 +26,13 @@ class App extends Component {
 
     render() {
         const navbarTabId = this.state.navbarTabId;
-        console.log("from render " + navbarTabId);
-        let panel = <PanelTech></PanelTech>;
+        console.log("ENV " + process.env.CORS_PROXY_URL);
+        console.log("PROP " + corsProxyUrl);
+        const corsProxyUrlParam = process.env.CORS_PROXY_URL ? process.env.CORS_PROXY_URL : corsProxyUrl;
+        let panel =
+            <PanelTech corsProxyUrl={corsProxyUrlParam}></PanelTech>;
         if (navbarTabId === "Dev") {
-            panel = <PanelDev></PanelDev>;
+            panel = <PanelDev corsProxyUrl={corsProxyUrlParam}></PanelDev>;
         }
         return (
             <div className="app">
@@ -58,7 +60,6 @@ class App extends Component {
     }
 
     handleNavbarTabChange(navbarTabId) {
-        console.log("handle " + navbarTabId);
         this.setState({navbarTabId});
     }
 

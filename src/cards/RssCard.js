@@ -8,7 +8,7 @@ export class RssCard extends React.Component {
         super(props);
         this.state = {
             rssParams: props.rssParams,
-            commonParams: props.commonParams,
+            corsProxyUrl: props.corsProxyUrl,
             list: null,
             error: false,
             slices: {first: [0, 10], second: [10, 20], third: [20, 30]}
@@ -52,10 +52,9 @@ export class RssCard extends React.Component {
         let list = [];
         let i = 0;
         const {rssUrl} = this.state.rssParams;
-        const {corsProxyUrl} = this.state.commonParams;
-
+        const corsProxyUrl = this.state.corsProxyUrl;
         if (rssUrl && corsProxyUrl) {
-            fetch(`${corsProxyUrl}/${rssUrl}`)
+            fetch(`${corsProxyUrl}?url=${rssUrl}`)
                 .then(response => response.text())
                 .then((xmlTxt) => {
                     const domParser = new DOMParser();

@@ -6,14 +6,14 @@ export class Panel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            commonParams: props.commonParams,
+            corsProxyUrl: props.corsProxyUrl,
             leftCardsParams: props.leftCardsParams,
             rightCardsParams: props.rightCardsParams
         }
     }
 
     render() {
-        const {commonParams, leftCardsParams, rightCardsParams} = this.state;
+        const {corsProxyUrl, leftCardsParams, rightCardsParams} = this.state;
         return (
             <div>
                 {leftCardsParams.map((card, i) => (
@@ -23,7 +23,7 @@ export class Panel extends React.Component {
                                     <div style={{margin: "0px 5px 0px 0px"}}>
                                         <RssCard
                                             rssParams={card}
-                                            commonParams={commonParams}>
+                                            corsProxyUrl={corsProxyUrl}>
                                         </RssCard>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@ export class Panel extends React.Component {
                                     <div style={{margin: "0px 0px 0px 5px"}}>
                                         <RssCard
                                             rssParams={rightCardsParams[i]}
-                                            commonParams={commonParams}>
+                                            corsProxyUrl={corsProxyUrl}>
                                         </RssCard>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@ export class Panel extends React.Component {
                                     <div style={{margin: "0px 5px 0px 0px"}}>
                                         <RssCard
                                             rssParams={card}
-                                            commonParams={commonParams}>
+                                            corsProxyUrl={corsProxyUrl}>
                                         </RssCard>
                                     </div>
                                 </div>
@@ -49,9 +49,6 @@ export class Panel extends React.Component {
                     )
                 )}
             </div>
-
-
         )
-
     }
 }

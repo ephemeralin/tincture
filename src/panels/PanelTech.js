@@ -1,15 +1,16 @@
 import React from "react";
-import {commonParams, techPanelParams} from "../properties";
+import {techPanelParams} from "../properties";
 import {Panel} from "./Panel";
 
-export function PanelTech() {
+export function PanelTech(props) {
     const {leftCardsParams, rightCardsParams} = techPanelParams;
+    const corsProxyUrl = props.corsProxyUrl;
     return (
         <div>
             <Panel
                 leftCardsParams={leftCardsParams}
                 rightCardsParams={rightCardsParams}
-                commonParams={commonParams}
+                corsProxyUrl={corsProxyUrl}
             >
             </Panel>
         </div>
