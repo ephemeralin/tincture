@@ -1,7 +1,5 @@
 {
-  "commonParams": {
-    "corsProxyUrl": "https://cors-anywhere.herokuapp.com/"
-  },
+  "corsProxyUrl": "",
   "devPanelParams": {
     "leftCardsParams": [
       {

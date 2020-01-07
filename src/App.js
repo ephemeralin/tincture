@@ -7,7 +7,7 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {Alignment, Navbar, Tab, Tabs} from "@blueprintjs/core";
 import {PanelDev} from "./panels/PanelDev";
 import {PanelTech} from "./panels/PanelTech";
-import {corsProxyUrl} from "./private-properties";
+import {corsProxyUrl} from "./properties";
 
 class App extends Component {
 
