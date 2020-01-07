@@ -55,6 +55,12 @@
         "rssUrl": "https://gagadget.com/rss/",
         "hostName": "GaGadget",
         "hostUrl": "https://gagadget.com/"
+      },
+      {
+        "row": 4,
+        "rssUrl": "https://www.opennet.ru/opennews/opennews_all_utf.rss",
+        "hostName": "OpenNET",
+        "hostUrl": "https://www.opennet.ru/"
       }
     ],
     "rightCardsParams": [
@@ -81,6 +87,12 @@
         "rssUrl": "https://www.popmech.ru/out/public-all.xml",
         "hostName": "Популярная механика",
         "hostUrl": "https://www.popmech.ru/"
+      },
+      {
+        "row": 4,
+        "rssUrl": "https://thecode.media/news/feed/",
+        "hostName": "КОД",
+        "hostUrl": "https://thecode.media/"
       }
     ]
   }
