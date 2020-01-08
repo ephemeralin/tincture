@@ -80,6 +80,12 @@
         "hostUrl": "https://rozetked.me/"
       },
       {
+        "row": 7,
+        "rssUrl": "https://mobile-review.com/news/feed/",
+        "hostName": "Mobile Review",
+        "hostUrl": "https://mobile-review.com/"
+      },
+      {
         "row": 4,
         "rssUrl": "https://3dnews.ru/software-news/rss/",
         "hostName": "3Dnews (software)",
