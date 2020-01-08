@@ -36,7 +36,7 @@ export class RssCard extends React.Component {
             </Card>;
         } else {
             return (
-                <Card interactive={false} elevation={Elevation.TWO} className="card-object" style={{width: "100%"}}>
+                <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                     {title}
                     {<div>
                         <div className="card-column">

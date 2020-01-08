@@ -3,13 +3,12 @@ import {devPanelParams} from "../properties";
 import {Panel} from "./Panel";
 
 export function PanelDev(props) {
-    const {leftCardsParams, rightCardsParams} = devPanelParams;
+    const {cards} = devPanelParams;
     const corsProxyUrl = props.corsProxyUrl;
     return (
         <div>
             <Panel
-                leftCardsParams={leftCardsParams}
-                rightCardsParams={rightCardsParams}
+                cards={cards}
                 corsProxyUrl={corsProxyUrl}
             >
             </Panel>

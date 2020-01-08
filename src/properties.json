@@ -1,7 +1,7 @@
 {
   "corsProxyUrl": "https://guwawj2g18.execute-api.eu-central-1.amazonaws.com/dev/cors-proxy/",
   "devPanelParams": {
-    "leftCardsParams": [
+    "cards": [
       {
         "row": 0,
         "rssUrl": "https://habr.com/ru/rss/best/daily/",
@@ -10,20 +10,18 @@
       },
       {
         "row": 1,
-        "rssUrl": "https://dev.by/rss",
-        "hostName": "dev.by",
-        "hostUrl": "https://dev.by/"
-      }
-    ],
-    "rightCardsParams": [
-      {
-        "row": 0,
         "rssUrl": "https://tproger.ru/feed/",
         "hostName": "Tproger",
         "hostUrl": "https://tproger.ru/"
       },
       {
-        "row": 1,
+        "row": 2,
+        "rssUrl": "https://dev.by/rss",
+        "hostName": "dev.by",
+        "hostUrl": "https://dev.by/"
+      },
+      {
+        "row": 3,
         "rssUrl": "https://dou.ua/feed/",
         "hostName": "DOU",
         "hostUrl": "https://dou.ua/"
@@ -31,7 +29,7 @@
     ]
   },
   "techPanelParams": {
-    "leftCardsParams": [
+    "cards": [
       {
         "row": 0,
         "rssUrl": "https://vc.ru/rss/all",
@@ -40,56 +38,54 @@
       },
       {
         "row": 1,
-        "rssUrl": "http://droider.ru/feed/",
-        "hostName": "Droider",
-        "hostUrl": "http://droider.ru/"
-      },
-      {
-        "row": 2,
-        "rssUrl": "https://3dnews.ru/software-news/rss/",
-        "hostName": "3Dnews (software)",
-        "hostUrl": "https://3dnews.ru/software-news"
-      },
-      {
-        "row": 3,
-        "rssUrl": "https://gagadget.com/rss/",
-        "hostName": "GaGadget",
-        "hostUrl": "https://gagadget.com/"
-      },
-      {
-        "row": 4,
-        "rssUrl": "https://www.opennet.ru/opennews/opennews_all_utf.rss",
-        "hostName": "OpenNET",
-        "hostUrl": "https://www.opennet.ru/"
-      }
-    ],
-    "rightCardsParams": [
-      {
-        "row": 0,
         "rssUrl": "https://www.ixbt.com/export/news.rss",
         "hostName": "ixbt.com",
         "hostUrl": "https://www.ixbt.com/"
       },
       {
-        "row": 1,
+        "row": 2,
+        "rssUrl": "http://droider.ru/feed/",
+        "hostName": "Droider",
+        "hostUrl": "http://droider.ru/"
+      },
+      {
+        "row": 3,
         "rssUrl": "https://wylsa.com/category/news/feed/",
         "hostName": "wylsa.com",
         "hostUrl": "https://wylsa.com/"
       },
       {
-        "row": 2,
+        "row": 4,
+        "rssUrl": "https://3dnews.ru/software-news/rss/",
+        "hostName": "3Dnews (software)",
+        "hostUrl": "https://3dnews.ru/software-news"
+      },
+      {
+        "row": 5,
         "rssUrl": "https://3dnews.ru/news/rss/",
         "hostName": "3Dnews (hardware)",
         "hostUrl": "https://3dnews.ru/news"
       },
       {
-        "row": 3,
+        "row": 5,
+        "rssUrl": "https://www.opennet.ru/opennews/opennews_all_utf.rss",
+        "hostName": "OpenNET",
+        "hostUrl": "https://www.opennet.ru/"
+      },
+      {
+        "row": 6,
         "rssUrl": "https://www.popmech.ru/out/public-all.xml",
         "hostName": "Популярная механика",
         "hostUrl": "https://www.popmech.ru/"
       },
       {
-        "row": 4,
+        "row": 7,
+        "rssUrl": "https://gagadget.com/rss/",
+        "hostName": "GaGadget",
+        "hostUrl": "https://gagadget.com/"
+      },
+      {
+        "row": 8,
         "rssUrl": "https://thecode.media/news/feed/",
         "hostName": "КОД",
         "hostUrl": "https://thecode.media/"

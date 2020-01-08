@@ -1,5 +1,5 @@
 .app {
-    margin: 50px 20px 20px 20px;
+    margin: 50px 5px 10px 5px;
     background-color: #293742;
     display: flex;
     flex-direction: column;
@@ -36,24 +36,27 @@
 }
 
 .card-data-error {
-    margin: 5px 10px 0px 0px;
+    margin: 0px 0px 0px 0px;
     color: red;
 }
 
 .card-div {
-  display: inline-block;
-  margin: 0 0 0px 0px;
-  width: 50%;
-  height: 100%;
-  vertical-align: top;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    width: 50%;
+    height: 100%;
+    float: left;
+    vertical-align: top;
 }
 
 .card-object {
     overflow: hidden;
     display: inline-block;
     width: 100%;
-
 }
 
-.card-block {
+@media screen and (max-width: 1000px) {
+    .card-div {
+        width: 100%; /* The width is 100%, when the viewport is 1000px or smaller */
+    }
 }
