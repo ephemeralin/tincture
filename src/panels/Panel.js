@@ -17,13 +17,12 @@ export class Panel extends React.Component {
             <div>
                 {cards.map((card, i) => (
                         <div className="card-div">
-                            <div style={{margin: "5px 5px 0px 5px"}}>
+                            <div className="card-div-2">
                                 <RssCard
                                     rssParams={card}
                                     corsProxyUrl={corsProxyUrl}>
                                 </RssCard>
                             </div>
-
                         </div>
                     )
                 )}
