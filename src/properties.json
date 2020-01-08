@@ -96,7 +96,8 @@
         "row": 4,
         "rssUrl": "https://3dnews.ru/software-news/rss/",
         "hostName": "3Dnews (software)",
-        "hostUrl": "https://3dnews.ru/software-news"
+        "hostUrl": "https://3dnews.ru/software-news",
+        "off": true
       },
       {
         "row": 5,
