@@ -55,13 +55,8 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1000px) {
-    .card-div {
-        width: 100%;
-    }
-}
 
-@media screen and (max-width: 1000px) and (orientation: portrait) {
+@media screen and (max-width: 1000px) {
     .card-div {
         width: 100%;
     }
