@@ -18,7 +18,8 @@
         "row": 2,
         "rssUrl": "https://techrocks.ru/feed/",
         "hostName": "Techrocks",
-        "hostUrl": "https://techrocks.ru/"
+        "hostUrl": "https://techrocks.ru/",
+        "off": true
       },
       {
         "row": 3,
@@ -59,6 +60,24 @@
         "rssUrl": "https://wylsa.com/category/news/feed/",
         "hostName": "wylsa.com",
         "hostUrl": "https://wylsa.com/"
+      },
+      {
+        "row": 4,
+        "rssUrl": "https://thebell.io/tag/tehnologii/feed/",
+        "hostName": "The Bell",
+        "hostUrl": "https://thebell.io/"
+      },
+      {
+        "row": 5,
+        "rssUrl": "https://xakep.ru/feed/",
+        "hostName": "Xakep",
+        "hostUrl": "https://xakep.ru/"
+      },
+      {
+        "row": 6,
+        "rssUrl": "https://rozetked.me/turbo/",
+        "hostName": "Rozetked",
+        "hostUrl": "https://rozetked.me/"
       },
       {
         "row": 4,

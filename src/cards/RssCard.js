@@ -102,6 +102,9 @@ export class RssCard extends React.Component {
         if (!id) {
             id = obj.querySelector('id');
         }
+        if (!id) {
+            id = obj.querySelector('link');
+        }
         return id;
     }
 }
