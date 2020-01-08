@@ -16,12 +16,18 @@
       },
       {
         "row": 2,
+        "rssUrl": "https://techrocks.ru/feed/",
+        "hostName": "Techrocks",
+        "hostUrl": "https://techrocks.ru/"
+      },
+      {
+        "row": 3,
         "rssUrl": "https://dev.by/rss",
         "hostName": "dev.by",
         "hostUrl": "https://dev.by/"
       },
       {
-        "row": 3,
+        "row": 4,
         "rssUrl": "https://dou.ua/feed/",
         "hostName": "DOU",
         "hostUrl": "https://dou.ua/"
