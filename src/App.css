@@ -57,6 +57,18 @@
 
 @media screen and (max-width: 1000px) {
     .card-div {
-        width: 100%; /* The width is 100%, when the viewport is 1000px or smaller */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) and (orientation: portrait) {
+    .card-div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .card-div {
+        width: 100%;
     }
 }
