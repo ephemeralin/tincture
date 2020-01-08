@@ -77,13 +77,20 @@
         "row": 6,
         "rssUrl": "https://rozetked.me/turbo/",
         "hostName": "Rozetked",
-        "hostUrl": "https://rozetked.me/"
+        "hostUrl": "https://rozetked.me/",
+        "off": true
       },
       {
         "row": 7,
         "rssUrl": "https://mobile-review.com/news/feed/",
         "hostName": "Mobile Review",
         "hostUrl": "https://mobile-review.com/"
+      },
+      {
+        "row": 5,
+        "rssUrl": "https://www.opennet.ru/opennews/opennews_all_utf.rss",
+        "hostName": "OpenNET",
+        "hostUrl": "https://www.opennet.ru/"
       },
       {
         "row": 4,
@@ -96,12 +103,6 @@
         "rssUrl": "https://3dnews.ru/news/rss/",
         "hostName": "3Dnews (hardware)",
         "hostUrl": "https://3dnews.ru/news"
-      },
-      {
-        "row": 5,
-        "rssUrl": "https://www.opennet.ru/opennews/opennews_all_utf.rss",
-        "hostName": "OpenNET",
-        "hostUrl": "https://www.opennet.ru/"
       },
       {
         "row": 6,
