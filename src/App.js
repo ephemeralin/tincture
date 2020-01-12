@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.scss';
+import './css/app.scss';
 
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";

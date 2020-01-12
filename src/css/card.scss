@@ -1,0 +1,56 @@
+.card-list-row {
+  font-size: 12px;
+  white-space: nowrap;
+  margin: 1px 10px 0px 0px;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #394B5A;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.card-list-row-empty {
+  font-size: 12px;
+  margin: 1px 10px 0px 0px;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #30404E;
+  color: #30404E;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.card-column {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.card-data-error {
+  color: red;
+}
+
+.card-div {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  vertical-align: top;
+}
+
+.card-div-2 {
+  margin: 5px 5px 0px 5px;
+}
+
+.card-object {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px), screen and (max-width: 1000px) and (orientation: landscape) {
+  .card-div {
+    width: 100%;
+  }
+}
+

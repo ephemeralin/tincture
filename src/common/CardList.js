@@ -1,7 +1,9 @@
 import React from "react";
 import {Popover} from "@blueprintjs/core";
 import ReactHtmlParser from 'react-html-parser';
-import '../App.scss';
+import '../css/app.scss';
+import '../css/card.scss';
+import '../css/popover.scss';
 
 export function CardList(props) {
     const {list} = props;

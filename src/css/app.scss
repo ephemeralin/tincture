@@ -1,0 +1,44 @@
+@import "node_modules/@blueprintjs/core/lib/scss/variables";
+
+.app {
+    margin: 50px 5px 10px 5px;
+    background-color: #293742;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popover-object {
+    width: 100%;
+    max-width: 500px;
+}
+
+.popover-content {
+    max-height: $pt-grid-size * 50;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 0 15px 15px 15px;
+    font-size: 12px;
+}
+
+.popover-text {
+    width: 100%;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.popover-text-header {
+    font-size: 12px;
+    padding: 15px 15px 10px 15px;
+}
+
+.popover-text-header-font {
+    color: $lime5 !important;
+}
+
+.popover-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
