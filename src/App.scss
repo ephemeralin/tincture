@@ -68,7 +68,6 @@
     max-height: $pt-grid-size * 50;
     overflow-y: auto;
     overflow-x: hidden;
-
     width: 100%;
     padding: 0px 15px 15px 15px;
     font-size: 12px;
@@ -96,14 +95,16 @@
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px), screen and (max-width: 1000px) and (orientation: landscape) {
     .card-div {
         width: 100%;
+    }
+    .popover-object {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 96%;
+        position: center;
     }
 }
 
-@media screen and (max-width: 1000px) and (orientation: landscape) {
-    .card-div {
-        width: 100%;
-    }
-}

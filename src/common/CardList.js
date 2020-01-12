@@ -29,29 +29,26 @@ const TPopover = ({item}) =>
              enforceFocus={false}
              inheritDarkTheme={true}
              popoverClassName="popover-object bp3-popover bp3-dark bp3-popover-content bp3-popover-arrow"
-             position="auto-start"
+             position="auto"
              canEscapeKeyClose={true}
              usePortal={true}
              content=
-                 {
-                     <div>
-                         <div className="popover-text-header">
-                             <a href={item.link} className="popover-text-header-font">{item.title}</a>
-                         </div>
-                         <div className="popover-content">
-                             <div className="popover-text"> {
-                                 ReactHtmlParser(item.description, {
-                                     transform: node => {
-                                         if (node.type === 'tag' && node.name === 'img') {
-                                             return (<img className="popover-img" src={node.attribs.src}/>);
-                                         }
-                                     }
-                                 })
-                             } </div>
-                         </div>
+                 {<div>
+                     <div className="popover-text-header">
+                         <a href={item.link} className="popover-text-header-font">{item.title}</a>
                      </div>
-
-                 }
+                     <div className="popover-content">
+                         <div className="popover-text"> {
+                             ReactHtmlParser(item.description, {
+                                 transform: node => {
+                                     if (node.type === 'tag' && node.name === 'img') {
+                                         return (<img className="popover-img" src={node.attribs.src}/>);
+                                     }
+                                 }
+                             })
+                         } </div>
+                     </div>
+                 </div>}
     >
         <a>{item.title}</a>
     </Popover>
