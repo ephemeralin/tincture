@@ -1,9 +1,11 @@
+@import "~@blueprintjs/core/src/common/react-transition";
+@import "~@blueprintjs/core/lib/scss/variables";
+
 .app {
     margin: 50px 5px 10px 5px;
     background-color: #293742;
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
     justify-content: center;
 }
 
@@ -55,6 +57,42 @@
     overflow: hidden;
     display: inline-block;
     width: 100%;
+}
+
+.popover-object {
+    width: 100%;
+    max-width: 500px;
+}
+
+.popover-content {
+    max-height: $pt-grid-size * 50;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    width: 100%;
+    padding: 0px 15px 15px 15px;
+    font-size: 12px;
+}
+
+.popover-text {
+    width: 100%;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.popover-text-header {
+    font-size: 12px;
+    padding: 15px 15px 10px 15px;
+}
+
+.popover-text-header-font {
+    color: $lime5 !important;
+}
+
+.popover-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 

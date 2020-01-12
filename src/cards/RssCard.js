@@ -65,7 +65,8 @@ export class RssCard extends React.Component {
                         list[i++] = {
                             title: item.querySelector('title').textContent,
                             url: item.querySelector('link').textContent,
-                            objectID: this.getIdElement(item).textContent
+                            objectID: this.getIdElement(item).textContent,
+                            description: this.getDescriptionElement(item).textContent
                         };
                     });
                     this.setError(false);
@@ -95,6 +96,14 @@ export class RssCard extends React.Component {
             items = obj.querySelectorAll('entry');
         }
         return items;
+    }
+
+    getDescriptionElement(obj) {
+        let result = obj.querySelector('description');
+        if (!result) {
+            result = obj.querySelector('summary');
+        }
+        return result;
     }
 
     getIdElement(obj) {
