@@ -37,7 +37,7 @@ const TPopover = ({item}) =>
              content=
                  {<div>
                      <div className="popover-text-header">
-                         <a href={item.link} className="popover-text-header-font">{item.title}</a>
+                         <a href={item.url} className="popover-text-header-font">{item.title}</a>
                      </div>
                      <div className="popover-content">
                          <div className="popover-text"> {
