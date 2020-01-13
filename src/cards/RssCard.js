@@ -74,7 +74,6 @@ export class RssCard extends React.Component {
                 })
                 .then(list => this.setList(list))
                 .catch(error => {
-                    console.error('Error in fetching the website ' + error.toString());
                     this.setError(true);
                 });
         } else {
@@ -122,7 +121,6 @@ export class RssCard extends React.Component {
         if (!url) {
             url = item.querySelector('link').getAttribute('href');
         }
-        console.log('url: ' + url);
         return url;
     }
 }
