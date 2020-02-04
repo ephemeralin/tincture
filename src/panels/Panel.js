@@ -8,21 +8,22 @@ export class Panel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            corsProxyUrl: props.corsProxyUrl,
-            cards: props.cards,
-        }
+            panel_name: props.panel_name,
+            api_host: process.env.REACT_APP_API_HOST,
+            feeds: []
+        };
+        this.setFeeds = this.setFeeds.bind(this);
     }
 
     render() {
-        const {corsProxyUrl, cards} = this.state;
+        const {feeds} = this.state;
         return (
             <div>
-                {cards.filter(excludeOff).map((card, i) => (
-                        <div className="card-div">
+                {feeds.map((card, i) => (
+                        <div key={i} className="card-div">
                             <div className="card-div-2">
                                 <RssCard
-                                    rssParams={card}
-                                    corsProxyUrl={corsProxyUrl}>
+                                    card={card}>
                                 </RssCard>
                             </div>
                         </div>
@@ -31,4 +32,29 @@ export class Panel extends React.Component {
             </div>
         )
     }
+
+    componentDidMount() {
+        let url = new URL(this.state.api_host + 'feeds/search');
+        var params = {feedArea: this.state.panel_name};
+        url.search = new URLSearchParams(params).toString();
+        fetch(url, {
+            method: "GET",
+        })
+            .then(response => response.json())
+            .then((result) => {
+                let feeds = result;
+                return feeds;
+            })
+            .then(list => this.setFeeds(list))
+            .catch(error => {
+                console.error("fetch error: ");
+                console.error(error);
+            });
+
+    }
+
+    setFeeds(feeds) {
+        this.setState({feeds});
+    }
+
 }

@@ -7,7 +7,6 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {Alignment, Navbar, Tab, Tabs} from "@blueprintjs/core";
 import {PanelDev} from "./panels/PanelDev";
 import {PanelTech} from "./panels/PanelTech";
-import {corsProxyUrl} from "./properties";
 
 class App extends Component {
 
@@ -26,10 +25,11 @@ class App extends Component {
 
     render() {
         const navbarTabId = this.state.navbarTabId;
-        let panel =
-            <PanelTech corsProxyUrl={corsProxyUrl}></PanelTech>;
+        let panel;
         if (navbarTabId === "Dev") {
-            panel = <PanelDev corsProxyUrl={corsProxyUrl}></PanelDev>;
+            panel = <PanelDev></PanelDev>;
+        } else if (navbarTabId === "Tech") {
+            panel = <PanelTech></PanelTech>;
         }
         return (
             <div className="app">

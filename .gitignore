@@ -24,3 +24,4 @@ yarn-error.log*
 
 .idea
 src/private-properties.json
+.env

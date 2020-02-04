@@ -7,31 +7,28 @@ export class RssCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rssParams: props.rssParams,
-            corsProxyUrl: props.corsProxyUrl,
-            list: null,
+            card: props.card,
             error: false,
-            slices: {first: [0, 10], second: [10, 20], third: [20, 30]}
+            slices: {first: [0, 10], second: [10, 20], third: [20, 30]},
         };
-        this.setList = this.setList.bind(this);
         this.setError = this.setError.bind(this);
     }
 
     render() {
-        const {list, error, slices} = this.state;
-        const {hostName, hostUrl} = this.state.rssParams;
-        const title = <h4 style={{margin: 0}}><a href={hostUrl}>{hostName}</a></h4>;
+        const {error, slices} = this.state;
+        const {feedPrettyName, feedHostUrl, entries} = this.state.card;
+        const title = <h4 style={{margin: 0}}><a href={feedHostUrl}>{feedPrettyName}</a></h4>;
         if (error) {
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                     {title}
                     {<div className="card-data-error">Getting feed error :(</div>}
                 </Card>);
-        } else if ((!list) || (list.length === 0)) {
+        } else if ((!entries) || (entries.length === 0)) {
             return <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                 {title}
                 <div className="card-column">
-                    <CardList list={list}/>
+                    <CardList list={entries}/>
                 </div>
             </Card>;
         } else {
@@ -40,88 +37,16 @@ export class RssCard extends React.Component {
                     {title}
                     {<div>
                         <div className="card-column">
-                            <CardList list={list.slice(...slices.first)}/>
+                            <CardList list={entries.slice(...slices.first)}/>
                         </div>
                     </div>}
                 </Card>);
         }
     }
 
-    componentDidMount() {
-
-        let list = [];
-        let i = 0;
-        const {rssUrl} = this.state.rssParams;
-        const corsProxyUrl = this.state.corsProxyUrl;
-        if (rssUrl && corsProxyUrl) {
-            fetch(`${corsProxyUrl}?url=${rssUrl}`)
-                .then(response => response.text())
-                .then((xmlTxt) => {
-                    const domParser = new DOMParser();
-                    const doc = domParser.parseFromString(xmlTxt, 'text/xml');
-
-                    let items = this.getItemsElement(doc);
-                    items.forEach((item) => {
-                        list[i++] = {
-                            title: item.querySelector('title').textContent,
-                            url: this.getUrl(item),
-                            objectID: this.getIdElement(item).textContent,
-                            description: this.getDescriptionElement(item).textContent
-                        };
-                    });
-                    this.setError(false);
-                    return list
-                })
-                .then(list => this.setList(list))
-                .catch(error => {
-                    this.setError(true);
-                });
-        } else {
-            this.setError(true);
-        }
-    }
-
-    setList(list) {
-        this.setState({list});
-    }
-
     setError(error) {
         this.setState({error});
     }
 
-    getItemsElement(obj) {
-        let items = obj.querySelectorAll('item');
-        if (items.length === 0) {
-            items = obj.querySelectorAll('entry');
-        }
-        return items;
-    }
-
-    getDescriptionElement(obj) {
-        let result = obj.querySelector('description');
-        if (!result) {
-            result = obj.querySelector('summary');
-        }
-        return result;
-    }
-
-    getIdElement(obj) {
-        let id = obj.querySelector('guid');
-        if (!id) {
-            id = obj.querySelector('id');
-        }
-        if (!id) {
-            id = obj.querySelector('link');
-        }
-        return id;
-    }
-
-    getUrl(item) {
-        let url = item.querySelector('link').textContent.trim();
-        if (!url) {
-            url = item.querySelector('link').getAttribute('href');
-        }
-        return url;
-    }
 }
 
