@@ -16,7 +16,7 @@ export class RssCard extends React.Component {
 
     render() {
         const {error, slices} = this.state;
-        const {feedPrettyName, feedHostUrl, entries} = this.state.card;
+        const {feedPrettyName, feedHostUrl, entries, feedName} = this.state.card;
         const title = <h4 style={{margin: 0}}><a href={feedHostUrl}>{feedPrettyName}</a></h4>;
         if (error) {
             return (
@@ -32,9 +32,16 @@ export class RssCard extends React.Component {
                 </div>
             </Card>;
         } else {
+            const iconPath = "icons/" + feedName + ".png";
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
-                    {title}
+                    <div className="card-logo">
+                        <img src={iconPath} style={{height: '16px'}}/>
+                    </div>
+                    <div className="card-title">
+                        {title}
+                    </div>
+
                     {<div>
                         <div className="card-column">
                             <CardList list={entries.slice(...slices.first)}/>
