@@ -1,9 +1,11 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+
 .card-list-row {
   font-size: 12px;
   white-space: nowrap;
   margin: 1px 10px 0px 0px;
   padding: 5px 0 5px 0;
-  border-bottom: 1px solid #394B5A;
+  border-bottom: 1px solid $dark-gray5;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -27,7 +29,7 @@
 }
 
 .card-data-error {
-  color: red;
+  color: $red2;
 }
 
 .card-div {
@@ -53,6 +55,12 @@
   margin-left: 3px;
 }
 
+.card-updated {
+  display: inline;
+  float: right;
+  font-size: 10px;
+  color: $gray2;
+}
 
 .card-object {
   overflow: hidden;

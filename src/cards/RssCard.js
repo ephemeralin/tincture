@@ -16,7 +16,7 @@ export class RssCard extends React.Component {
 
     render() {
         const {error, slices} = this.state;
-        const {feedPrettyName, feedHostUrl, entries, feedName} = this.state.card;
+        const {feedPrettyName, feedHostUrl, entries, feedName, feedUpdated} = this.state.card;
         const title = <h4 style={{margin: 0}}><a href={feedHostUrl}>{feedPrettyName}</a></h4>;
         if (error) {
             return (
@@ -33,6 +33,7 @@ export class RssCard extends React.Component {
             </Card>;
         } else {
             const iconPath = "icons/" + feedName + ".png";
+            const updatedString = this.getUpdated(feedUpdated);
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
                     <div className="card-logo">
@@ -40,6 +41,9 @@ export class RssCard extends React.Component {
                     </div>
                     <div className="card-title">
                         {title}
+                    </div>
+                    <div className="card-updated">
+                        {updatedString}
                     </div>
 
                     {<div>
@@ -49,6 +53,41 @@ export class RssCard extends React.Component {
                     </div>}
                 </Card>);
         }
+    }
+
+    getUpdated(feedUpdated) {
+        let result = '';
+        const feedUpdatedMillis = Date.parse(feedUpdated.replace('[UTC]', ''));
+        if (!isNaN(feedUpdatedMillis)) {
+            result = this.getUpdatedString(Math.round((Date.now() - feedUpdatedMillis) / 1000 / 60));
+        }
+        return result;
+    }
+
+    getUpdatedString(updatedMins) {
+        let result = '';
+        let hours = Math.floor(updatedMins / 60);
+        if (hours > 0) {
+            const remainMins = updatedMins - hours * 60;
+            result = 'updated ' + this.formatHours(hours) + this.formatMinutes(remainMins) + 'ago';
+        } else {
+            result = 'updated ' + this.formatMinutes(updatedMins) + 'ago';
+        }
+        return result;
+    }
+
+    formatHours(h) {
+        if (h === 1 || (h % 10 === 1 && (h % 100) > 19)) {
+            return h + ' hour ';
+        }
+        return h + ' hours ';
+    }
+
+    formatMinutes(m) {
+        if (m === 1 || m % 10 === 1) {
+            return m + ' minute ';
+        }
+        return m + ' minutes ';
     }
 
     setError(error) {
