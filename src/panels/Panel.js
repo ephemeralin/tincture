@@ -34,7 +34,7 @@ export class Panel extends React.Component {
     }
 
     componentDidMount() {
-        let url = new URL(this.state.api_host + 'feeds/search');
+        let url = new URL(this.state.api_host + 'feeds/query');
         var params = {feedArea: this.state.panel_name};
         url.search = new URLSearchParams(params).toString();
         fetch(url, {
