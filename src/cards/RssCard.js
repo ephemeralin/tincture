@@ -45,7 +45,6 @@ export class RssCard extends React.Component {
                     <div className="card-updated">
                         {updatedString}
                     </div>
-
                     {<div>
                         <div className="card-column">
                             <CardList list={entries.slice(...slices.first)}/>

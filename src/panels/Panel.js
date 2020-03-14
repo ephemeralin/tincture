@@ -50,7 +50,6 @@ export class Panel extends React.Component {
                 console.error("fetch error: ");
                 console.error(error);
             });
-
     }
 
     setFeeds(feeds) {

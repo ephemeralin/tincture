@@ -7,6 +7,7 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import {Alignment, Navbar, Tab, Tabs} from "@blueprintjs/core";
 import {PanelDev} from "./panels/PanelDev";
 import {PanelTech} from "./panels/PanelTech";
+import {PanelLife} from "./panels/PanelLife";
 
 class App extends Component {
 
@@ -30,6 +31,8 @@ class App extends Component {
             panel = <PanelDev></PanelDev>;
         } else if (navbarTabId === "Tech") {
             panel = <PanelTech></PanelTech>;
+        } else if (navbarTabId === "Life") {
+            panel = <PanelLife></PanelLife>;
         }
         return (
             <div className="app">
@@ -46,6 +49,7 @@ class App extends Component {
                         >
                             <Tab id="Dev" title="Dev"/>
                             <Tab id="Tech" title="Tech"/>
+                            <Tab id="Life" title="Life"/>
                         </Tabs>
                     </Navbar.Group>
                 </Navbar>
