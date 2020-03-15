@@ -4,9 +4,7 @@ import {Panel} from "./Panel";
 export function PanelTech(props) {
     return (
         <div>
-            <Panel
-                panel_name="tech"
-            >
+            <Panel panel_name="tech">
             </Panel>
         </div>
     );
