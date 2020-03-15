@@ -1,10 +1,10 @@
 import React from "react";
 import {Panel} from "./Panel";
 
-export function PanelDev(props) {
+export function PanelDevEng(props) {
     return (
         <div>
-            <Panel panel_name="dev">
+            <Panel panel_name="dev_eng">
             </Panel>
         </div>
     );
