@@ -38,7 +38,7 @@ class App extends Component {
             <div className="app">
                 <Navbar fixedToTop>
                     <Navbar.Group align={Alignment.LEFT}>
-                        <Navbar.Heading>Tincture</Navbar.Heading>
+                        <Navbar.Heading>🦠Tincture</Navbar.Heading>
                         <Navbar.Divider/>
                         <Tabs
                             animate={true}
