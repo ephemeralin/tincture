@@ -9,6 +9,7 @@ import {PanelDev} from "./panels/PanelDev";
 import {PanelDevEng} from "./panels/PanelDevEng";
 import {PanelTech} from "./panels/PanelTech";
 import {PanelTechEng} from "./panels/PanelTechEng";
+import {PanelJavaEng} from "./panels/PanelJavaEng";
 import {PanelLife} from "./panels/PanelLife";
 import {PanelLifeEng} from "./panels/PanelLifeEng";
 
@@ -42,6 +43,8 @@ class App extends Component {
             panel = isEng ? <PanelTechEng></PanelTechEng> : <PanelTech></PanelTech>;
         } else if (navbarTabId === "Life") {
             panel = isEng ? <PanelLifeEng></PanelLifeEng> : <PanelLife></PanelLife>;
+        } else if (navbarTabId === "Java") {
+            panel = <PanelJavaEng></PanelJavaEng>;
         }
         return (
             <div className="app">
@@ -59,6 +62,7 @@ class App extends Component {
                             <Tab id="Dev" title="Dev"/>
                             <Tab id="Tech" title="Tech"/>
                             <Tab id="Life" title="Life"/>
+                            {isEng && <Tab id="Java" title="☕️Java"/>}
                         </Tabs>
                     </Navbar.Group>
                     <Navbar.Group align={Alignment.RIGHT}>
