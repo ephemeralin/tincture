@@ -64,7 +64,7 @@ class App extends Component {
                             <Tab id="Dev" title="Dev"/>
                             <Tab id="Tech" title="Tech"/>
                             <Tab id="Life" title="Life"/>
-                            {isEng && <Tab id="Java" title="☕️Java"/>}
+                            {isEng && <Tab id="Java" title="Java"/>}
                         </Tabs>
                     </Navbar.Group>
                     <Navbar.Group align={Alignment.RIGHT}>
