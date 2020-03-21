@@ -1,4 +1,4 @@
-# Tincture: React.js frontend part
+# Tincture: frontend
 
 The service is available at: **https://tincture.ephemeralin.com/**
 
