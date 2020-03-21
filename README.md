@@ -1,5 +1,7 @@
 # Tincture: frontend
 
+"Tincture" is a service which is aggregating different news feeds in one place. It is built for those who are annoyed by ads, subscriptions, "fat" web-sites, "smart" recommendations and infinite browsing between all that stuff.   
+ 
 The service is available at: **https://tincture.ephemeralin.com/**
 
 It is created using such technologies:
