@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {useMediaPredicate} from "react-media-hook";
 import './css/app.scss';
 
 import "normalize.css";
@@ -34,6 +35,7 @@ class App extends Component {
 
     render() {
         console.log("RENDER");
+        // const biggerThan400 = useMediaPredicate("(min-width: 400px)");
         const navbarTabId = this.state.navbarTabId;
         const isEng = this.state.isEng;
         let panel;
@@ -50,8 +52,8 @@ class App extends Component {
             <div className="app">
                 <Navbar fixedToTop>
                     <Navbar.Group align={Alignment.LEFT}>
-                        <Navbar.Heading>🦠Tincture</Navbar.Heading>
-                        <Navbar.Divider/>
+                        <NavbarHeader/>
+                        <NavbarDividerResp/>
                         <Tabs
                             animate={true}
                             id="navbar"
@@ -66,19 +68,13 @@ class App extends Component {
                         </Tabs>
                     </Navbar.Group>
                     <Navbar.Group align={Alignment.RIGHT}>
-
-                        {/*<label class="bp3-control bp3-switch .modifier">*/}
-                        {/*    <input type="checkbox" modifier />*/}
-                        {/*<span class="bp3-control-indicator"></span>*/}
-                        {/*Switch*/}
-                        {/*</label>*/}
-
                         <Switch
-                            alignIndicator={Alignment.RIGHT}
-                            className={Classes.LARGE}
-                            checked={isEng}
-                            label={isEng ? "English" : "Русский"}
-                            onChange={this.handleIsEngChange}
+                            innerLabel=<SwitchInnerLabel isEng={isEng}/>
+                        alignIndicator={Alignment.RIGHT}
+                        className={Classes.LARGE}
+                        checked={isEng}
+                        label=<SwitchLabel isEng={isEng}/>
+                        onChange={this.handleIsEngChange}
                         />
                     </Navbar.Group>
                 </Navbar>
@@ -101,5 +97,54 @@ class App extends Component {
     }
 
 }
+
+const NavbarHeader = () => {
+    const biggerThan450 = useMediaPredicate("(min-width: 450px)");
+
+    if (biggerThan450) {
+        return <div>
+            {<Navbar.Heading>🦠Tincture</Navbar.Heading>}
+        </div>
+    } else {
+        return <div>
+            {<Navbar.Heading>🦠</Navbar.Heading>}
+        </div>
+    }
+};
+
+const SwitchLabel = (props) => {
+    const {isEng} = props;
+    const biggerThan400 = useMediaPredicate("(min-width: 375px)");
+    if (biggerThan400) {
+        return isEng ? "English" : "Русский";
+    } else {
+        return ""
+    }
+};
+
+const SwitchInnerLabel = (props) => {
+    const {isEng} = props;
+    const biggerThan400 = useMediaPredicate("(min-width: 375px)");
+    const biggerThan332 = useMediaPredicate("(min-width: 332px)");
+    if (biggerThan400) {
+        return ""
+    } else {
+        if (biggerThan332) {
+            return isEng ? "Eng" : "Rus";
+        } else {
+            return isEng ? "E" : "R";
+        }
+    }
+};
+
+const NavbarDividerResp = () => {
+    const biggerThan450 = useMediaPredicate("(min-width: 450px)");
+    if (biggerThan450) {
+        return <Navbar.Divider/>
+    } else {
+        return "";
+    }
+};
+
 
 export default App;
