@@ -36,7 +36,7 @@ class App extends Component {
     render() {
         console.log("RENDER");
         // const biggerThan400 = useMediaPredicate("(min-width: 400px)");
-        const navbarTabId = this.state.navbarTabId;
+        let navbarTabId = this.state.navbarTabId;
         const isEng = this.state.isEng;
         let panel;
         if (navbarTabId === "Dev") {
@@ -46,7 +46,12 @@ class App extends Component {
         } else if (navbarTabId === "Life") {
             panel = isEng ? <PanelLifeEng></PanelLifeEng> : <PanelLife></PanelLife>;
         } else if (navbarTabId === "Java") {
-            panel = <PanelJavaEng></PanelJavaEng>;
+            if (isEng) {
+                panel = <PanelJavaEng></PanelJavaEng>;
+            } else {
+                panel = <PanelDev></PanelDev>;
+                navbarTabId = "Dev";
+            }
         }
         return (
             <div className="app">
