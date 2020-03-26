@@ -73,14 +73,15 @@ class App extends Component {
                         </Tabs>
                     </Navbar.Group>
                     <Navbar.Group align={Alignment.RIGHT}>
-                        <Switch
-                            innerLabel=<SwitchInnerLabel isEng={isEng}/>
-                        alignIndicator={Alignment.RIGHT}
-                        className={Classes.LARGE}
-                        checked={isEng}
-                        label=<SwitchLabel isEng={isEng}/>
-                        onChange={this.handleIsEngChange}
-                        />
+                        <div className="isEngSwitch">
+                            <Switch innerLabel=<SwitchInnerLabel isEng={isEng}/>
+                            alignIndicator={Alignment.RIGHT}
+                            className={Classes.LARGE}
+                            checked={isEng}
+                            label=<SwitchLabel isEng={isEng}/>
+                            onChange={this.handleIsEngChange}
+                            />
+                        </div>
                     </Navbar.Group>
                 </Navbar>
 
