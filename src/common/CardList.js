@@ -50,7 +50,7 @@ const TPopover = ({item}) =>
                              ReactHtmlParser(item.description, {
                                  transform: node => {
                                      if (node.type === 'tag' && node.name === 'img') {
-                                         return (<img key={node.attribs.src} className="popover-img"
+                                         return (<img key={node.attribs.src} className="popover-img" alt=""
                                                       src={node.attribs.src}/>);
                                      }
                                  }

@@ -1,19 +1,27 @@
 @import "~@blueprintjs/core/lib/scss/variables";
 
+.bp3-dark a {
+  color: $blue5
+}
+
+.bp3-dark a:hover {
+  color: #48c9f0
+}
+
 .card-list-row {
   font-size: 12px;
   white-space: nowrap;
-  margin: 1px 0px 0px 0px;
+  margin: 1px 0 0 0;
   padding: 5px 0 5px 0;
   border-bottom: 1px solid $dark-gray5;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   width: 100%;
 }
 
 .card-list-row-empty {
   font-size: 12px;
-  margin: 1px 10px 0px 0px;
+  margin: 1px 10px 0 0;
   padding: 5px 0 5px 0;
   border-bottom: 1px solid #30404E;
   color: #30404E;
@@ -41,7 +49,7 @@
 }
 
 .card-div-2 {
-  margin: 5px 5px 0px 5px;
+  margin: 5px 5px 0 5px;
 }
 
 .card-logo {
@@ -63,10 +71,24 @@
 }
 
 .show-more {
-  display: inline;
+  display: inline-block;
   float: right;
-  margin-left: 5px;
   font-size: 11px;
+}
+
+.show-more-button {
+  padding: 0 0 2px 3px;
+  color: $green4;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.show-more-button:hover {
+  //background-color: wheat;
+  color: $green5;
+  text-decoration: underline;
 }
 
 .card-object {
@@ -81,10 +103,8 @@
   }
 }
 
-@media screen and (max-width: 450px), screen and (max-width: 450px) and (orientation: landscape) {
-  //.card-list-row {
-  //  margin: 1px -10px 0 -10px;
-  //padding: 5px -10px 5px -100px;
-  //}
-
+@media screen and (max-width: 449px), screen and (max-width: 449px) and (orientation: landscape) {
+  .bp3-card {
+    padding: 10px;
+  }
 }

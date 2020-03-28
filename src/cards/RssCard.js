@@ -75,14 +75,13 @@ export class RssCard extends React.Component {
 
                     </Overlay>
                     <div className="card-logo">
-                        <img src={iconPath} style={{height: '16px'}}/>
+                        <img src={iconPath} alt="" style={{height: '16px'}}/>
                     </div>
                     <div className="card-title">
                         {title}
                     </div>
                     <div className="show-more">
-                        <a onClick={this.handleOpen}>more...</a>
-
+                        <button className="show-more-button" onClick={this.handleOpen}>more...</button>
                     </div>
                     <div className="card-updated">
                         {updatedString}

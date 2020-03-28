@@ -11,3 +11,9 @@
 .isEngSwitch {
   margin-top: 10px;
 }
+
+@media screen and (max-width: 374px), screen and (max-width: 374px) and (orientation: landscape) {
+  .isEngSwitch {
+    margin-top: 0;
+  }
+}

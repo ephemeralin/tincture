@@ -34,8 +34,6 @@ class App extends Component {
     }
 
     render() {
-        console.log("RENDER");
-        // const biggerThan400 = useMediaPredicate("(min-width: 400px)");
         let navbarTabId = this.state.navbarTabId;
         const isEng = this.state.isEng;
         let panel;
@@ -92,8 +90,6 @@ class App extends Component {
     }
 
     handleNavbarTabChange(navbarTabId) {
-        console.log(navbarTabId);
-        console.log(this.state.isEng);
         this.setState({navbarTabId});
     }
 
@@ -109,11 +105,11 @@ const NavbarHeader = () => {
 
     if (biggerThan450) {
         return <div>
-            {<Navbar.Heading>🦠Tincture</Navbar.Heading>}
+            {<Navbar.Heading><span role="img" aria-label="">🦠</span>Tincture</Navbar.Heading>}
         </div>
     } else {
         return <div>
-            {<Navbar.Heading>🦠</Navbar.Heading>}
+            {<Navbar.Heading><span role="img" aria-label="">🦠</span></Navbar.Heading>}
         </div>
     }
 };
