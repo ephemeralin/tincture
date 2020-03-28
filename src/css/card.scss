@@ -3,7 +3,7 @@
 .card-list-row {
   font-size: 12px;
   white-space: nowrap;
-  margin: 1px 10px 0px 0px;
+  margin: 1px 0px 0px 0px;
   padding: 5px 0 5px 0;
   border-bottom: 1px solid $dark-gray5;
   overflow: hidden;
@@ -58,8 +58,15 @@
 .card-updated {
   display: inline;
   float: right;
-  font-size: 10px;
+  font-size: 11px;
   color: $gray2;
+}
+
+.show-more {
+  display: inline;
+  float: right;
+  margin-left: 5px;
+  font-size: 11px;
 }
 
 .card-object {
@@ -74,3 +81,10 @@
   }
 }
 
+@media screen and (max-width: 450px), screen and (max-width: 450px) and (orientation: landscape) {
+  //.card-list-row {
+  //  margin: 1px -10px 0 -10px;
+  //padding: 5px -10px 5px -100px;
+  //}
+
+}

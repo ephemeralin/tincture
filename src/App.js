@@ -130,9 +130,9 @@ const SwitchLabel = (props) => {
 
 const SwitchInnerLabel = (props) => {
     const {isEng} = props;
-    const biggerThan400 = useMediaPredicate("(min-width: 375px)");
+    const biggerThan375 = useMediaPredicate("(min-width: 375px)");
     const biggerThan332 = useMediaPredicate("(min-width: 332px)");
-    if (biggerThan400) {
+    if (biggerThan375) {
         return ""
     } else {
         if (biggerThan332) {

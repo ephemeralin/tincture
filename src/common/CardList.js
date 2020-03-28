@@ -39,6 +39,7 @@ const TPopover = ({item}) =>
              position="auto"
              canEscapeKeyClose={true}
              usePortal={true}
+             minimal={false}
              content=
                  {<div>
                      <div className="popover-text-header">

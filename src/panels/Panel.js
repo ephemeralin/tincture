@@ -1,8 +1,6 @@
 import React from "react";
 import {RssCard} from "../cards/RssCard";
 
-const excludeOff = item => !item.off;
-
 export class Panel extends React.Component {
 
     constructor(props) {

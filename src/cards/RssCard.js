@@ -1,6 +1,11 @@
 import React from "react";
-import {Card, Elevation} from "@blueprintjs/core";
+import {Card, Classes, Elevation, Overlay} from "@blueprintjs/core";
 import {CardList} from "../common/CardList";
+import classNames from "classnames";
+import '../css/overlay.scss';
+
+const OVERLAY_EXAMPLE_CLASS = "overlay-transition";
+const OVERLAY_TALL_CLASS = "overlay-tall";
 
 export class RssCard extends React.Component {
 
@@ -10,6 +15,8 @@ export class RssCard extends React.Component {
             card: props.card,
             error: false,
             slices: {first: [0, 10], second: [10, 20], third: [20, 30]},
+            isOpen: false,
+            useTallContent: false
         };
         this.setError = this.setError.bind(this);
     }
@@ -18,6 +25,13 @@ export class RssCard extends React.Component {
         const {error, slices} = this.state;
         const {feedPrettyName, feedHostUrl, entries, feedName, feedUpdated} = this.state.card;
         const title = <h4 style={{margin: 0}}><a href={feedHostUrl}>{feedPrettyName}</a></h4>;
+        const classes = classNames(
+            Classes.CARD,
+            Classes.ELEVATION_4,
+            OVERLAY_EXAMPLE_CLASS,
+            {[OVERLAY_TALL_CLASS]: this.state.useTallContent},
+        );
+
         if (error) {
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
@@ -36,11 +50,39 @@ export class RssCard extends React.Component {
             const updatedString = this.getUpdated(feedUpdated);
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
+                    <Overlay
+                        className={Classes.OVERLAY_SCROLL_CONTAINER}
+                        isOpen={this.state.isOpen}
+                        onClose={this.handleClose}
+                        canEscapeKeyClose={true}
+                        autoFocus={true}
+                        canOutsideClickClose={true}
+                        enforceFocus={true}
+                        hasBackdrop={true}
+                        usePortal={true}
+                        useTallContent={false}
+                        transitionName={Classes.OVERLAY}
+                        lazy={true}
+
+                    >
+                        <div className={classes}>
+                            {<div>
+                                <div className="card-column">
+                                    <CardList list={entries}/>
+                                </div>
+                            </div>}
+                        </div>
+
+                    </Overlay>
                     <div className="card-logo">
                         <img src={iconPath} style={{height: '16px'}}/>
                     </div>
                     <div className="card-title">
                         {title}
+                    </div>
+                    <div className="show-more">
+                        <a onClick={this.handleOpen}>more...</a>
+
                     </div>
                     <div className="card-updated">
                         {updatedString}
@@ -93,5 +135,7 @@ export class RssCard extends React.Component {
         this.setState({error});
     }
 
+    handleOpen = () => this.setState({isOpen: true});
+    handleClose = () => this.setState({isOpen: false, useTallContent: false});
 }
 

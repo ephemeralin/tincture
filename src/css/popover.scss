@@ -1,48 +1,45 @@
 @import "~@blueprintjs/core/lib/scss/variables";
 
 .popover-object {
-    width: 100%;
-    max-width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .popover-content {
-    max-height: $pt-grid-size * 50;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
-    padding: 0 15px 15px 15px;
-    font-size: 12px;
+  max-height: $pt-grid-size * 50;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  padding: 0 15px 15px 15px;
+  font-size: 12px;
 }
 
 .popover-text {
-    width: 100%;
-    object-fit: contain;
-    display: inline-block;
+  width: 100%;
+  object-fit: contain;
+  display: inline-block;
 }
 
 .popover-text-header {
-    font-size: 12px;
-    padding: 15px 15px 10px 15px;
+  font-size: 12px;
+  padding: 15px 15px 10px 15px;
 }
 
 .popover-text-header-font {
-    color: $lime5 !important;
+  color: $lime5 !important;
 }
 
 .popover-img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
-
-@media screen and (max-width: 1000px), screen and (max-width: 1000px) and (orientation: landscape) {
-    .popover-object {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 96%;
-        position: center;
-    }
+@media screen and (max-width: 505px), screen and (max-width: 505px) and (orientation: landscape) {
+  .popover-object {
+    left: 2%;
+    width: 98%;
+    position: center;
+  }
 }
 

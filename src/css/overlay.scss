@@ -1,0 +1,46 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+@import "~@blueprintjs/core/src/common/react-transition";
+
+.overlay-transition {
+    $overlay-width: $pt-grid-size * 60;
+    $enter: (
+            transform: (translateY(-50vh) rotate(-10deg), translateY(0) rotate(0deg))
+    );
+    $leave: (
+            transform: (translateY(150vh) rotate(-20deg), translateY(0) rotate(0deg))
+    );
+
+    @include react-transition-phase(
+                    "#{$ns}-overlay",
+                    "enter",
+                    $enter,
+                    $pt-transition-duration * 3,
+                    $pt-transition-ease-bounce,
+            $before: "&"
+    );
+    @include react-transition-phase(
+                    "#{$ns}-overlay",
+                    "exit",
+                    $leave,
+                    $pt-transition-duration * 5,
+            $before: "&"
+    );
+
+    top: 0;
+    left: calc(50vw - #{$overlay-width / 2});
+    margin: 10vh 0;
+    width: 97%;
+    max-width: $overlay-width;
+}
+
+.overlay-tall {
+    height: 200%;
+}
+
+@media screen and (max-width: 600px), screen and (max-width: 600px) and (orientation: landscape) {
+    .overlay-transition {
+        left: 2%;
+        position: center;
+        width: 96%;
+    }
+}
