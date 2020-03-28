@@ -2,7 +2,7 @@
 @import "~@blueprintjs/core/src/common/react-transition";
 
 .overlay-transition {
-    $overlay-width: $pt-grid-size * 60;
+    $overlay-width: $pt-grid-size * 80;
     $enter: (
             transform: (translateY(-50vh) rotate(-10deg), translateY(0) rotate(0deg))
     );
@@ -36,6 +36,27 @@
 .overlay-tall {
     height: 200%;
 }
+
+.overlay-close {
+    display: inline;
+    float: right;
+    font-size: 12px;
+}
+
+.overlay-close-button {
+    padding: 0 0 2px 3px;
+    color: $red3;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.overlay-close-button:hover {
+    color: $red5;
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 600px), screen and (max-width: 600px) and (orientation: landscape) {
     .overlay-transition {

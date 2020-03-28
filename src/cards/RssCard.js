@@ -50,30 +50,15 @@ export class RssCard extends React.Component {
             const updatedString = this.getUpdated(feedUpdated);
             return (
                 <Card interactive={false} elevation={Elevation.TWO} className="card-object">
-                    <Overlay
-                        className={Classes.OVERLAY_SCROLL_CONTAINER}
-                        isOpen={this.state.isOpen}
-                        onClose={this.handleClose}
-                        canEscapeKeyClose={true}
-                        autoFocus={true}
-                        canOutsideClickClose={true}
-                        enforceFocus={true}
-                        hasBackdrop={true}
-                        usePortal={true}
-                        useTallContent={false}
-                        transitionName={Classes.OVERLAY}
-                        lazy={true}
-
+                    <CardOverlay
+                        classes={classes}
+                        iconPath={iconPath}
+                        title={title}
+                        entries={entries}
+                        parent={this}
                     >
-                        <div className={classes}>
-                            {<div>
-                                <div className="card-column">
-                                    <CardList list={entries}/>
-                                </div>
-                            </div>}
-                        </div>
+                    </CardOverlay>
 
-                    </Overlay>
                     <div className="card-logo">
                         <img src={iconPath} alt="" style={{height: '16px'}}/>
                     </div>
@@ -137,4 +122,39 @@ export class RssCard extends React.Component {
     handleOpen = () => this.setState({isOpen: true});
     handleClose = () => this.setState({isOpen: false, useTallContent: false});
 }
+
+const CardOverlay = ({classes, iconPath, title, entries, parent}) =>
+    <Overlay
+        className={Classes.OVERLAY_SCROLL_CONTAINER}
+        isOpen={parent.state.isOpen}
+        onClose={parent.handleClose}
+        canEscapeKeyClose={true}
+        autoFocus={true}
+        canOutsideClickClose={true}
+        enforceFocus={true}
+        hasBackdrop={true}
+        usePortal={true}
+        useTallContent={false}
+        transitionName={Classes.OVERLAY}
+        lazy={true}
+    >
+        <div className={classes}>
+            <div className="card-logo">
+                <img src={iconPath} alt="" style={{height: '16px'}}/>
+            </div>
+            <div className="card-title">
+                {title}
+            </div>
+            <div className="overlay-close">
+                <button className="overlay-close-button" onClick={parent.handleClose}>close</button>
+            </div>
+            {<div>
+                <div className="card-column">
+                    <CardList list={entries}/>
+                </div>
+            </div>}
+        </div>
+
+    </Overlay>
+
 
