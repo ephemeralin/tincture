@@ -6,6 +6,8 @@ import '../css/overlay.scss';
 
 const OVERLAY_EXAMPLE_CLASS = "overlay-transition";
 const OVERLAY_TALL_CLASS = "overlay-tall";
+const MILLISECONDS_IN_SECOND = 1000;
+const MINUTES_IN_DAY = 60 * 24;
 
 export class RssCard extends React.Component {
 
@@ -84,21 +86,46 @@ export class RssCard extends React.Component {
         let result = '';
         const feedUpdatedMillis = Date.parse(feedUpdated.replace('[UTC]', ''));
         if (!isNaN(feedUpdatedMillis)) {
-            result = this.getUpdatedString(Math.round((Date.now() - feedUpdatedMillis) / 1000 / 60));
+            result = this.getUpdatedString(Math.round((Date.now() - feedUpdatedMillis) / MILLISECONDS_IN_SECOND / 60));
         }
         return result;
     }
 
-    getUpdatedString(updatedMins) {
+    getUpdatedString(updatedMinutes) {
         let result = '';
-        let hours = Math.floor(updatedMins / 60);
-        if (hours > 0) {
-            const remainMins = updatedMins - hours * 60;
-            result = 'updated ' + this.formatHours(hours) + this.formatMinutes(remainMins) + 'ago';
+        let days = Math.floor(updatedMinutes / MINUTES_IN_DAY);
+        //if Updated more than 1 day ago, show Days and Hours
+        if (days > 0) {
+            const remainMinutes = updatedMinutes - days * MINUTES_IN_DAY;
+            let hours = Math.floor(remainMinutes / 60);
+            if (hours > 0) {
+                result = 'updated ' + this.formatDays(days) + this.formatHours(hours) + 'ago';
+            } else {
+                result = 'updated ' + this.formatDays(days) + 'ago';
+            }
+            //if Updated less than 1 day ago, show Hours and Minutes
         } else {
-            result = 'updated ' + this.formatMinutes(updatedMins) + 'ago';
+            let hours = Math.floor(updatedMinutes / 60);
+            if (hours > 0) {
+                const remainMinutes = updatedMinutes - hours * 60;
+                if (remainMinutes === 0) {
+                    result = 'updated ' + this.formatHours(hours) + 'ago';
+                } else {
+                    result = 'updated ' + this.formatHours(hours) + this.formatMinutes(remainMinutes) + 'ago';
+                }
+                //if Updated less than 1 hour ago, show Minutes only
+            } else {
+                result = 'updated ' + this.formatMinutes(updatedMinutes) + 'ago';
+            }
         }
         return result;
+    }
+
+    formatDays(d) {
+        if (d === 1 || (d % 10 === 1 && (d % 100) > 19)) {
+            return d + ' day ';
+        }
+        return d + ' days ';
     }
 
     formatHours(h) {
